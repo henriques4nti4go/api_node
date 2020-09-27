@@ -1,12 +1,14 @@
-const express = require('express');
-
+const express =  require('express');
+const cors = require('cors');
 const app = express();
 
-app.get('/', (req, res) => {
+app.use(express.json());
+// app.use(cors());
 
-    return res.json({message: 'Welcome to my api!'})
-})
+const route = require('./routes');
 
-app.listen(4000, () => {
-    console.log('server has started!')
-})
+app.use(route);
+
+
+
+app.listen(3333);
